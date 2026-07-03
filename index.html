@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STRUCTUS | Gradbena dela</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@700&display=swap');
+        
+        :root {
+            --black: #0a0a0a;
+            --yellow: #fbaa19;
+            --gray: #1f1f1f;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: #eee;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://source.unsplash.com/random/1920x1080/?construction') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .nav-logo, .hero-logo {
+            height: 75px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .hero-logo {
+            height: 120px;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--yellow);
+            color: #000;
+            padding: 16px 40px;
+            font-weight: 700;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background: #ffbb33;
+            transform: scale(1.05);
+        }
+        
+        section { padding: 100px 8%; }
+        
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--yellow);
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: var(--gray);
+            padding: 2.5rem;
+            border-radius: 8px;
+            border-top: 6px solid var(--yellow);
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .project img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+        
+        .project:hover img {
+            transform: scale(1.1);
+        }
+        
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 4rem 8%;
+            color: #aaa;
+        }
+        
+        .stripe {
+            background: repeating-linear-gradient(45deg, var(--yellow), var(--yellow) 20px, #000 20px, #000 40px);
+            height: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav style="position: fixed; top: 0; width: 100%; background: rgba(10,10,10,0.95); z-index: 1000; padding: 1rem 8%;">
+        <div style="max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center;">
+            <img src="Logo_Stran_PNG.png" alt="STRUCTUS Logo" class="nav-logo">
+            
+            <div style="display: flex; gap: 2rem; font-weight: 500;">
+                <a href="#services" style="color:#eee; text-decoration:none;">Kaj delamo</a>
+                <a href="#projects" style="color:#eee; text-decoration:none;">Reference</a>
+                <a href="#contact" style="color:#eee; text-decoration:none;">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header>
+        <div class="hero">
+            <img src="Logo_Stran_PNG.png" alt="STRUCTUS Logo" class="hero-logo">
+            <h1>Gradbena dela d.o.o</h1>
+            <p style="font-size: 1.4rem; max-width: 700px; margin: 1.5rem auto;">
+                Vrhunska gradnja in razvoj z natančnostjo, močjo in vizijo.
+            </p>
+            <a href="#contact" class="btn">PRIDOBITE PONUDBO</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section style="background: var(--gray);">
+        <h2>O STRUCTUS</h2>
+        <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.25rem;">
+            Z več kot 15-letnimi izkušnjami STRUCTUS izvaja izjemne gradbene projekte v stanovanjskem, poslovnem in industrijskem sektorju. Kakovost, varnost in inovacije so v središču vsega, kar gradimo.
+        </p>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <h2>Kaj delamo</h2>
+        <div class="services">
+            <div class="card">
+                <h3 style="color:var(--yellow); margin-bottom:1rem;">🏗️ Gradbena dela</h3>
+                <p>Betonska in armiranobetonska dela, zemljska dela in izkopi, tesarska dela.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:var(--yellow); margin-bottom:1rem;">🏢 Obrtniška dela</h3>
+                <p>Fasaderska dela, slikopleskarska dela, suhomontažna dela.</p>
+            </div>
+            <div class="card">
+                <h3 style="color:var(--yellow); margin-bottom:1rem;">🏠 Urejanje okolice</h3>
+                <p>Celostna preureditev, obrezovanje zelenja.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" style="background: var(--gray);">
+        <h2>Naši projekti</h2>
+        <div class="projects">
+            <div class="project">
+                <img src="https://plus.unsplash.com/premium_photo-1681989486976-9ec9d2eac57a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 1">
+                <div style="position:absolute; bottom:0; left:0; right:0; background: rgba(0,0,0,0.8); padding:1rem; color:var(--yellow);">
+                    Stanovanjski kompleks
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1685531172849-f797aeb950fb?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 2">
+                <div style="position:absolute; bottom:0; left:0; right:0; background: rgba(0,0,0,0.8); padding:1rem; color:var(--yellow);">
+                    Poslovna stavba
+                </div>
+            </div>
+            <div class="project">
+                <img src="https://images.unsplash.com/photo-1547895749-888a559fc2a7?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 3">
+                <div style="position:absolute; bottom:0; left:0; right:0; background: rgba(0,0,0,0.8); padding:1rem; color:var(--yellow);">
+                    Industrijski objekt
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Kontaktirajte nas</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="font-size: 1.3rem; margin-bottom: 2rem;">
+                Pripravljeni, da skupaj zgradimo nekaj velikega?
+            </p>
+            <div style="background: #111; padding: 3rem; border-radius: 12px; border: 3px solid var(--yellow);">
+                <p><strong>Telefon:</strong> +386 70 842 800</p>
+                <p><strong>Email:</strong> info@structus.si</p>
+                <p><strong>Naslov:</strong> Pavlova vas 28, 8255 Pišece</p>
+                <a href="#" class="btn" style="margin-top: 2rem;">POŠLJI SPOROČILO</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="stripe"></div>
+        <p style="margin-top: 2rem;">&copy; 2026 STRUCTUS Gradnje d.o.o. All Rights Reserved.</p>
+        <p style="margin-top: 0.5rem;">Gradimo hitro in natančno.</p>
+    </footer>
+
+    <script>
+        console.log("%cSTRUCTUS Website Loaded Successfully", "color:#fbaa19; font-size:16px;");
+    </script>
+</body>
+</html>
