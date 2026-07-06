@@ -1,225 +1,348 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STRUCTUS | Gradbena dela</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@700&display=swap');
-        
-        :root {
-            --black: #0a0a0a;
-            --yellow: #fbaa19;
-            --gray: #1f1f1f;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--black);
-            color: #eee;
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://source.unsplash.com/random/1920x1080/?construction') center/cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-        }
-        
-        .nav-logo, .hero-logo {
-            height: 75px;
-            width: auto;
-            object-fit: contain;
-        }
-        
-        .hero-logo {
-            height: 120px;
-            margin-bottom: 1rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--yellow);
-            color: #000;
-            padding: 16px 40px;
-            font-weight: 700;
-            border-radius: 4px;
-            text-decoration: none;
-            margin-top: 2rem;
-            transition: 0.3s;
-        }
-        
-        .btn:hover {
-            background: #ffbb33;
-            transform: scale(1.05);
-        }
-        
-        section { padding: 100px 8%; }
-        
-        h2 {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--yellow);
-        }
-        
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .card {
-            background: var(--gray);
-            padding: 2.5rem;
-            border-radius: 8px;
-            border-top: 6px solid var(--yellow);
-        }
-        
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .project {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-        
-        .project img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            transition: 0.4s;
-        }
-        
-        .project:hover img {
-            transform: scale(1.1);
-        }
-        
-        footer {
-            background: #000;
-            text-align: center;
-            padding: 4rem 8%;
-            color: #aaa;
-        }
-        
-        .stripe {
-            background: repeating-linear-gradient(45deg, var(--yellow), var(--yellow) 20px, #000 20px, #000 40px);
-            height: 8px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRUCTUS | Gradbena dela</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --concrete:#EEEBE4;
+    --concrete-dark:#DCD7CC;
+    --charcoal:#22252A;
+    --charcoal-soft:#33373D;
+    --steel:#3C5266;
+    --rust:#fbaa19;
+    --rust-dark:#A0481A;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--concrete);
+    color:var(--charcoal);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Barlow Condensed',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    line-height:1.05;
+    font-weight:800;
+  }
+  .mono{
+    font-family:'Roboto Mono',monospace;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-size:0.75rem;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  /* corner marks - signature element */
+  .marked{position:relative;}
+  .marked::before,.marked::after,
+  .marked .c2::before,.marked .c2::after{
+    content:"";
+    position:absolute;
+    width:18px;height:18px;
+    border-color:var(--rust);
+    z-index:2;
+  }
+  .marked::before{top:-1px;left:-1px;border-top:3px solid var(--rust);border-left:3px solid var(--rust);}
+  .marked::after{bottom:-1px;right:-1px;border-bottom:3px solid var(--rust);border-right:3px solid var(--rust);}
+
+  /* header */
+  header{
+    position:fixed;top:0;left:0;right:0;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 5%;
+    background:rgba(238,235,228,0.92);
+    backdrop-filter:blur(6px);
+    z-index:100;
+    border-bottom:1px solid rgba(34,37,42,0.08);
+  }
+  .logo{font-family:'Barlow Condensed';font-weight:800;font-size:1.5rem;letter-spacing:0.05em;}
+  .logo span{color:var(--rust);}
+  nav{display:flex;gap:2.2rem;}
+  nav a{
+    font-family:'Roboto Mono';font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;
+    position:relative;padding-bottom:4px;
+  }
+  nav a::after{content:"";position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--rust);transition:width .25s;}
+  nav a:hover::after{width:100%;}
+  .burger{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--charcoal);}
+
+  /* hero */
+  .hero{
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:140px 5% 80px;
+    position:relative;
+    background-color:var(--concrete);
+    background-image:
+      repeating-linear-gradient(0deg, rgba(60,82,102,0.08) 0, rgba(60,82,102,0.08) 1px, transparent 1px, transparent 64px),
+      repeating-linear-gradient(90deg, rgba(60,82,102,0.08) 0, rgba(60,82,102,0.08) 1px, transparent 1px, transparent 64px);
+  }
+  .hero .eyebrow{color:var(--steel);margin-bottom:1.2rem;display:flex;align-items:center;gap:.6rem;}
+  .hero .eyebrow::before{content:"";width:28px;height:2px;background:var(--rust);display:inline-block;}
+  .hero h1{font-size:clamp(3rem,8vw,6.2rem);max-width:14ch;}
+  .hero h1 em{font-style:normal;color:var(--rust);}
+  .hero p{max-width:46ch;font-size:1.15rem;margin-top:1.6rem;color:var(--charcoal-soft);}
+  .hero-cta{
+    display:flex;gap:1rem;margin-top:2.6rem;flex-wrap:wrap;align-items:center;
+  }
+  .btn{
+    display:inline-block;padding:1rem 2rem;font-family:'Roboto Mono';font-size:0.8rem;
+    text-transform:uppercase;letter-spacing:0.08em;
+    background:var(--rust);color:var(--white);
+    border:2px solid var(--rust);
+    transition:background .2s, color .2s;
+  }
+  .btn:hover{background:transparent;color:var(--rust);}
+  .btn-outline{
+    background:transparent;color:var(--charcoal);border:2px solid var(--charcoal);
+  }
+  .btn-outline:hover{background:var(--charcoal);color:var(--white);}
+
+  .stats{
+    display:flex;gap:3rem;margin-top:4rem;flex-wrap:wrap;
+    border-top:1px solid rgba(34,37,42,0.15);
+    padding-top:2rem;
+  }
+  .stat b{font-family:'Barlow Condensed';font-size:2.6rem;display:block;color:var(--steel);}
+  .stat span{font-family:'Roboto Mono';font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--charcoal-soft);}
+
+  section{padding:120px 5%;}
+  .section-head{max-width:60ch;margin-bottom:4rem;}
+  .section-head .mono{color:var(--rust);display:block;margin-bottom:0.8rem;}
+  .section-head h2{font-size:clamp(2.2rem,5vw,3.4rem);}
+
+  /* about */
+  #about{background:var(--white);}
+  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4rem;align-items:center;}
+  .about-grid p{color:var(--charcoal-soft);font-size:1.05rem;margin-bottom:1.2rem;}
+  .about-visual{
+    aspect-ratio:4/5;
+    background:var(--charcoal);
+    position:relative;
+    padding:2rem;
+    display:flex;flex-direction:column;justify-content:flex-end;
+    color:var(--white);
+  }
+  .about-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55;}
+  .about-visual .content{position:relative;z-index:1;}
+  .about-visual .content .mono{color:var(--rust);}
+  .about-visual .content h3{font-size:2rem;margin-top:0.4rem;}
+
+  /* services */
+  #services{background:var(--concrete-dark);}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(34,37,42,0.15);}
+  .service-card{
+    background:var(--concrete-dark);
+    padding:2.6rem 2rem;
+    transition:background .25s;
+  }
+  .service-card:hover{background:var(--charcoal);color:var(--white);}
+  .service-card:hover p{color:#cfd3d8;}
+  .service-card .num{font-family:'Roboto Mono';color:var(--rust);font-size:0.8rem;}
+  .service-card h3{font-size:1.7rem;margin:0.8rem 0 0.8rem;}
+  .service-card p{color:var(--charcoal-soft);font-size:0.98rem;}
+
+  /* projects */
+  #projects{background:var(--white);}
+  .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+  .project-card{overflow:hidden;}
+  .project-card .img-wrap{aspect-ratio:4/3;overflow:hidden;position:relative;margin-bottom:1rem;}
+  .project-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+  .project-card:hover img{transform:scale(1.06);}
+  .project-card .label{display:flex;justify-content:space-between;align-items:baseline;}
+  .project-card h3{font-size:1.3rem;}
+  .project-card .mono{color:var(--rust);}
+
+  /* contact */
+  #contact{background:var(--charcoal);color:var(--white);}
+  #contact .section-head h2{color:var(--white);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;}
+  .contact-info .row{
+    display:flex;flex-direction:column;gap:0.3rem;
+    padding:1.4rem 0;border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .contact-info .row .mono{color:var(--rust);}
+  .contact-info .row a, .contact-info .row span{font-size:1.15rem;}
+  form{display:flex;flex-direction:column;gap:1.1rem;}
+  form input, form textarea{
+    background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,0.3);
+    color:var(--white);font-family:'Inter';font-size:1rem;padding:0.7rem 0.2rem;
+  }
+  form input::placeholder, form textarea::placeholder{color:rgba(255,255,255,0.45);}
+  form input:focus, form textarea:focus{outline:none;border-bottom-color:var(--rust);}
+  form button{align-self:flex-start;margin-top:0.6rem;cursor:pointer;}
+
+  footer{
+    background:var(--charcoal);color:rgba(255,255,255,0.55);
+    padding:2rem 5%;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+    font-family:'Roboto Mono';font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;
+    border-top:1px solid rgba(255,255,255,0.1);
+  }
+
+  @media (max-width:900px){
+    nav{position:fixed;top:68px;left:0;right:0;background:var(--concrete);flex-direction:column;padding:1.5rem 5%;gap:1.2rem;display:none;border-bottom:1px solid rgba(0,0,0,0.08);}
+    nav.open{display:flex;}
+    .burger{display:block;}
+    .about-grid, .contact-grid{grid-template-columns:1fr;}
+    .service-grid, .project-grid{grid-template-columns:1fr;}
+    .stats{gap:2rem;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav style="position: fixed; top: 0; width: 100%; background: rgba(10,10,10,0.95); z-index: 1000; padding: 1rem 8%;">
-        <div style="max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center;">
-            <img src="Logo_Stran_PNG.png" alt="STRUCTUS Logo" class="nav-logo">
-            
-            <div style="display: flex; gap: 2rem; font-weight: 500;">
-                <a href="#services" style="color:#eee; text-decoration:none;">Kaj delamo</a>
-                <a href="#projects" style="color:#eee; text-decoration:none;">Reference</a>
-                <a href="#contact" style="color:#eee; text-decoration:none;">Kontakt</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero -->
-    <header>
-        <div class="hero">
-            <img src="Logo_Stran_PNG.png" alt="STRUCTUS Logo" class="hero-logo">
-            <h1>Gradbena dela d.o.o</h1>
-            <p style="font-size: 1.4rem; max-width: 700px; margin: 1.5rem auto;">
-                Vrhunska gradnja in razvoj z natančnostjo, močjo in vizijo.
-            </p>
-            <a href="#contact" class="btn">PRIDOBITE PONUDBO</a>
-        </div>
-    </header>
+<header>
+  <img src="logo.png" alt="STRUCTUS" style="height:40px;">
+  <nav id="nav">
+    <a href="#about">O nas</a>
+    <a href="#services">Storitve</a>
+    <a href="#projects">Reference</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Meni">☰</button>
+</header>
 
-    <!-- About -->
-    <section style="background: var(--gray);">
-        <h2>O STRUCTUS</h2>
-        <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.25rem;">
-            Z več kot 15-letnimi izkušnjami STRUCTUS izvaja izjemne gradbene projekte v stanovanjskem, poslovnem in industrijskem sektorju. Kakovost, varnost in inovacije so v središču vsega, kar gradimo.
-        </p>
-    </section>
+<section class="hero">
+  <div class="eyebrow mono">STRUCTUS &mdash; Gradbena dela d.o.o.</div>
+  <h1>Gradimo stvari,<br>ki <em>trajajo.</em></h1>
+  <p>15 let izkušenj pri gradnji stanovanjskih, poslovnih in industrijskih objektov. Natančnost v vsakem koraku, od temeljev do zaključnih del.</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn">Pridobite ponudbo</a>
+    <a href="#projects" class="btn btn-outline">Naše reference</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>15+</b><span>Let izkušenj</span></div>
+    <div class="stat"><b>120+</b><span>Zaključenih projektov</span></div>
+    <div class="stat"><b>3</b><span>Področja dela</span></div>
+  </div>
+</section>
 
-    <!-- Services -->
-    <section id="services">
-        <h2>Kaj delamo</h2>
-        <div class="services">
-            <div class="card">
-                <h3 style="color:var(--yellow); margin-bottom:1rem;">🏗️ Gradbena dela</h3>
-                <p>Betonska in armiranobetonska dela, zemljska dela in izkopi, tesarska dela.</p>
-            </div>
-            <div class="card">
-                <h3 style="color:var(--yellow); margin-bottom:1rem;">🏢 Obrtniška dela</h3>
-                <p>Fasaderska dela, slikopleskarska dela, suhomontažna dela.</p>
-            </div>
-            <div class="card">
-                <h3 style="color:var(--yellow); margin-bottom:1rem;">🏠 Urejanje okolice</h3>
-                <p>Celostna preureditev, obrezovanje zelenja.</p>
-            </div>
-        </div>
-    </section>
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:1.6rem;">
+        <span class="mono">O podjetju</span>
+        <h2>Zanesljiv partner od prve lopate do zadnje opeke.</h2>
+      </div>
+      <p>STRUCTUS je gradbeno podjetje z več kot 15-letnimi izkušnjami na terenu. Izvajamo projekte v stanovanjskem, poslovnem in industrijskem sektorju — od grobih gradbenih del do obrtniških zaključkov.</p>
+      <p>Delamo po načelu, da dobra gradnja ni naključje: je rezultat natančnega planiranja, preverjenih materialov in ekipe, ki pozna svoj poklic. Vsak projekt spremljamo osebno, od ponudbe do primopredaje.</p>
+      <a href="#services" class="btn btn-outline" style="margin-top:1rem;">Kaj delamo</a>
+    </div>
+    <div class="about-visual marked">
+      <img src="https://images.unsplash.com/photo-1541976590-713941681591?q=80&w=800&auto=format&fit=crop" alt="Gradbišče STRUCTUS">
+      <div class="content">
+        <span class="mono">Od 2011</span>
+        <h3>Zgrajeno<br>na zaupanju.</h3>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Projects -->
-    <section id="projects" style="background: var(--gray);">
-        <h2>Naši projekti</h2>
-        <div class="projects">
-            <div class="project">
-                <img src="https://plus.unsplash.com/premium_photo-1681989486976-9ec9d2eac57a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 1">
-                <div style="position:absolute; bottom:0; left:0; right:0; background: rgba(0,0,0,0.8); padding:1rem; color:var(--yellow);">
-                    Stanovanjski kompleks
-                </div>
-            </div>
-            <div class="project">
-                <img src="https://images.unsplash.com/photo-1685531172849-f797aeb950fb?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 2">
-                <div style="position:absolute; bottom:0; left:0; right:0; background: rgba(0,0,0,0.8); padding:1rem; color:var(--yellow);">
-                    Poslovna stavba
-                </div>
-            </div>
-            <div class="project">
-                <img src="https://images.unsplash.com/photo-1547895749-888a559fc2a7?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project 3">
-                <div style="position:absolute; bottom:0; left:0; right:0; background: rgba(0,0,0,0.8); padding:1rem; color:var(--yellow);">
-                    Industrijski objekt
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="services">
+  <div class="section-head">
+    <span class="mono">Kaj delamo</span>
+    <h2>Tri področja, ena ekipa.</h2>
+  </div>
+  <div class="service-grid">
+    <div class="service-card">
+      <span class="num">01 / Gradbena dela</span>
+      <h3>Groba gradnja</h3>
+      <p>Betonska in armiranobetonska dela, zemeljska dela in izkopi, tesarska dela — temelji vsakega dobrega objekta.</p>
+    </div>
+    <div class="service-card">
+      <span class="num">02 / Obrtniška dela</span>
+      <h3>Zaključna dela</h3>
+      <p>Fasaderska in slikopleskarska dela ter suhomontažna dela za čist, dovršen videz vašega objekta.</p>
+    </div>
+    <div class="service-card">
+      <span class="num">03 / Zunanja ureditev</span>
+      <h3>Urejanje okolice</h3>
+      <p>Celostna zunanja preureditev in obrezovanje zelenja — dokončamo projekt tudi zunaj štirih sten.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Kontaktirajte nas</h2>
-        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-            <p style="font-size: 1.3rem; margin-bottom: 2rem;">
-                Pripravljeni, da skupaj zgradimo nekaj velikega?
-            </p>
-            <div style="background: #111; padding: 3rem; border-radius: 12px; border: 3px solid var(--yellow);">
-                <p><strong>Telefon:</strong> +386 70 842 800</p>
-                <p><strong>Email:</strong> structus.gradnje@gmail.com</p>
-                <p><strong>Naslov:</strong> Pavlova vas 28, 8255 Pišece</p>
-                <a href="#" class="btn" style="margin-top: 2rem;">POŠLJI SPOROČILO</a>
-            </div>
-        </div>
-    </section>
+<section id="projects">
+  <div class="section-head">
+    <span class="mono">Reference</span>
+    <h2>Nekaj naših zadnjih projektov.</h2>
+  </div>
+  <div class="project-grid">
+    <div class="project-card marked">
+      <div class="img-wrap">
+        <img src="https://plus.unsplash.com/premium_photo-1681989486976-9ec9d2eac57a?q=80&w=800&auto=format&fit=crop" alt="Stanovanjski kompleks">
+      </div>
+      <div class="label"><h3>Stanovanjski kompleks</h3><span class="mono">Stanovanjsko</span></div>
+    </div>
+    <div class="project-card marked">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1685531172849-f797aeb950fb?q=80&w=800&auto=format&fit=crop" alt="Poslovna stavba">
+      </div>
+      <div class="label"><h3>Poslovna stavba</h3><span class="mono">Poslovno</span></div>
+    </div>
+    <div class="project-card marked">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1547895749-888a559fc2a7?q=80&w=800&auto=format&fit=crop" alt="Industrijski objekt">
+      </div>
+      <div class="label"><h3>Industrijski objekt</h3><span class="mono">Industrijsko</span></div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="stripe"></div>
-        <p style="margin-top: 2rem;">&copy; 2026 STRUCTUS Gradnje d.o.o. All Rights Reserved.</p>
-        <p style="margin-top: 0.5rem;">Gradimo hitro in natančno.</p>
-    </footer>
+<section id="contact">
+  <div class="section-head">
+    <span class="mono">Kontakt</span>
+    <h2>Pripravljeni zgraditi nekaj velikega?</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="row">
+        <span class="mono">Telefon</span>
+        <a href="tel:+38670842800">+386 70 842 800</a>
+      </div>
+      <div class="row">
+        <span class="mono">Email</span>
+        <a href="mailto:structus.gradnje@gmail.com">structus.gradnje@gmail.com</a>
+      </div>
+      <div class="row">
+        <span class="mono">Naslov</span>
+        <span>Pavlova vas 28, 8255 Pišece</span>
+      </div>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Hvala! Sporočilo bo poslano, ko povežemo obrazec z e-pošto.');">
+      <input type="text" placeholder="Ime in priimek" required>
+      <input type="email" placeholder="Email naslov" required>
+      <textarea rows="4" placeholder="Opišite vaš projekt"></textarea>
+      <button type="submit" class="btn">Pošlji povpraševanje</button>
+    </form>
+  </div>
+</section>
 
-    <script>
-        console.log("%cSTRUCTUS Website Loaded Successfully", "color:#fbaa19; font-size:16px;");
-    </script>
+<footer>
+  <span>&copy; 2026 STRUCTUS Gradnje d.o.o. Vse pravice pridržane.</span>
+  <span>Gradimo hitro in natančno.</span>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('nav');
+  burger.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+</script>
 </body>
 </html>
